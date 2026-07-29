@@ -1,0 +1,23 @@
+{
+  "workspace": ".control-tower",
+  "risk": {
+    "high_risk_terms": ["authentication", "authorization", "payment", "migration", "production", "personal data"],
+    "medium_risk_terms": ["configuration", "dependency", "api", "database"]
+  },
+  "policy": {
+    "require_plan_approval_for": ["medium", "high"],
+    "require_security_approval_for": ["high"],
+    "allow_merge": false,
+    "allow_deploy": false,
+    "max_repair_attempts": 2,
+    "max_changed_files": 20
+  },
+  "tools": {
+    "allowed_commands": [
+      "python -m unittest discover -s tests -v",
+      "python -m compileall -q src tests",
+      "git diff --check"
+    ],
+    "timeout_seconds": 120
+  }
+}
