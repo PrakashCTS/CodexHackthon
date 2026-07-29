@@ -1,0 +1,16 @@
+{
+  "id": "DEMO-101",
+  "title": "Add configurable account lockout threshold",
+  "description": "Authentication must lock an account after a configurable number of failed sign-in attempts. Reset behavior requires product confirmation.",
+  "acceptance_criteria": [
+    "Given an active account, when failed sign-ins reach the configured threshold, then the account is locked.",
+    "The default threshold is five attempts.",
+    "Successful sign-in resets the failed-attempt counter."
+  ],
+  "non_functional_requirements": [
+    "Do not expose credentials or personal data in logs.",
+    "Existing authentication tests must continue to pass."
+  ],
+  "labels": ["authentication", "configuration", "security"],
+  "repository": "."
+}

@@ -1,0 +1,16 @@
+services:
+  control-tower:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - control-tower-data:/app/.control-tower
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+volumes:
+  control-tower-data:
