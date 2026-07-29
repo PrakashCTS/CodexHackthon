@@ -8,37 +8,6 @@
 > the recommended next actions from any Cognizant-specific instruction that still
 > needs confirmation in the internal hackathon portal or organizer email.
 
-## Run the working reference solution
-
-This repository now includes an executable vertical slice for every lifecycle step,
-a local dashboard, JSON API, CLI, persisted evidence, approval gates, tests, secure
-container configuration, and operating documentation. It uses only the Python
-standard library at runtime and makes no external model or data call.
-
-```bash
-make test
-make demo       # CLI flow; copy the run_id to approve its gates
-make serve      # dashboard at http://127.0.0.1:8080
-```
-
-The demo ticket is `fixtures/tickets/account-lockout.json`. Runtime policy—including
-risk terms, approval requirements, timeouts, and the exact command allow-list—is in
-`config/workflow.json`. Run evidence is atomically persisted under
-`.control-tower/runs/`.
-
-| Document | Purpose |
-|---|---|
-| [`docs/IMPLEMENTATION.md`](docs/IMPLEMENTATION.md) | Maps every proposed SDLC step to code, artifacts, and production integration seams |
-| [`docs/RUNBOOK.md`](docs/RUNBOOK.md) | Native, CLI, dashboard, and Docker operating instructions |
-| [`docs/SECURITY.md`](docs/SECURITY.md) | Trust boundary, threat controls, and production go/no-go checklist |
-| [`docs/EVALUATION.md`](docs/EVALUATION.md) | Experiment design, acceptance checks, and judging scorecard |
-
-The local implementation deliberately stops short of editing an arbitrary target
-repository: its implementation agent creates a Codex-ready brief. This is a safety
-boundary, not a hidden mock. The production integration path is to replace that
-adapter with an isolated worktree/Codex gateway while retaining the same policy,
-approval, and evidence contracts.
-
 ## 1. Executive idea
 
 Build an **Agentic SDLC Control Tower**: a human-governed engineering workflow in
